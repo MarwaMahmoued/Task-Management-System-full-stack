@@ -1,0 +1,10 @@
+import { createList, getAllList, getListById ,updateList,deleteList} from "../Controllers/list.controllers.js";
+import { Router } from "express";
+import { auth } from "../middlewares/auth.middleware.js";
+const listRouter=Router();
+listRouter.post("/",auth,createList);
+listRouter.get("/all/:boardId",auth,getAllList);
+listRouter.get("/one/:id",getListById);
+listRouter.put("/:id", auth, updateList);
+listRouter.delete("/:id", auth, deleteList);
+export default listRouter;
