@@ -1,0 +1,643 @@
+{
+  "info": {
+    "_postman_id": "d0b70bf2-a276-483a-86d7-9de0d1411497",
+    "name": "Task Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52808580",
+    "_collection_link": "https://go.postman.co/collection/52808580-d0b70bf2-a276-483a-86d7-9de0d1411497?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "task",
+      "item": [
+        {
+          "name": "create task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUyMzUwOCwiZXhwIjoxNzc2NTI3MTA4fQ._IiBPm08LkA99M9dC7kvWWR5nAoAbIeC4GBaZeaX8og",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Assign task two to user\",\r\n  \"description\": \"This is my last task in the new list\",\r\n  \"boardId\": \"69c16990ffdbb3d38cc6511e\",\r\n  \"listId\": \"69e392bb272d8509b988ea82\",\r\n  \"assignedTo\": \"69e3869b3247deef56625b12\",\r\n  \"status\": \"To Do\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/task",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "task"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get tasks by list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUyMzUwOCwiZXhwIjoxNzc2NTI3MTA4fQ._IiBPm08LkA99M9dC7kvWWR5nAoAbIeC4GBaZeaX8og",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/task/69e392bb272d8509b988ea82",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "task",
+                "69e392bb272d8509b988ea82"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update task",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUyMzUwOCwiZXhwIjoxNzc2NTI3MTA4fQ._IiBPm08LkA99M9dC7kvWWR5nAoAbIeC4GBaZeaX8og",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"In Progress\",\r\n  \"description\": \"I'm working on this now\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/task/69e3994e272d8509b988ea92",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "task",
+                "69e3994e272d8509b988ea92"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete task",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUyMzUwOCwiZXhwIjoxNzc2NTI3MTA4fQ._IiBPm08LkA99M9dC7kvWWR5nAoAbIeC4GBaZeaX8og",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/task/69e39aea272d8509b988eaad",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "task",
+                "69e39aea272d8509b988eaad"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": null,
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Board",
+      "item": [
+        {
+          "name": "create Board",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUxODk4MSwiZXhwIjoxNzc2NTIyNTgxfQ.yzzAFUZvr4B1hQKN-PTbBI25jlsQ-wNCAbrIQ4V2fJ4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"My second project\",\r\n  \"description\": \"Learning and studying new technologies\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/board",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "board"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Board",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUxODk4MSwiZXhwIjoxNzc2NTIyNTgxfQ.yzzAFUZvr4B1hQKN-PTbBI25jlsQ-wNCAbrIQ4V2fJ4",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/board",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "board"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Board",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUxODk4MSwiZXhwIjoxNzc2NTIyNTgxfQ.yzzAFUZvr4B1hQKN-PTbBI25jlsQ-wNCAbrIQ4V2fJ4",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/board/69e388023247deef56625b19",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "board",
+                "69e388023247deef56625b19"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Board",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUxODk4MSwiZXhwIjoxNzc2NTIyNTgxfQ.yzzAFUZvr4B1hQKN-PTbBI25jlsQ-wNCAbrIQ4V2fJ4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Updated Title for full stack project\",\r\n    \"description\": \"It works perfectly!\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/board/69e387e13247deef56625b17",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "board",
+                "69e387e13247deef56625b17"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get by Id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUxODk4MSwiZXhwIjoxNzc2NTIyNTgxfQ.yzzAFUZvr4B1hQKN-PTbBI25jlsQ-wNCAbrIQ4V2fJ4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/board/69e387e13247deef56625b17",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "board",
+                "69e387e13247deef56625b17"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "list",
+      "item": [
+        {
+          "name": "create list",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUxODk4MSwiZXhwIjoxNzc2NTIyNTgxfQ.yzzAFUZvr4B1hQKN-PTbBI25jlsQ-wNCAbrIQ4V2fJ4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"final list\",\r\n  \"boardId\": \"69c16990ffdbb3d38cc6511e\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/list",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "list"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update list",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUxODk4MSwiZXhwIjoxNzc2NTIyNTgxfQ.yzzAFUZvr4B1hQKN-PTbBI25jlsQ-wNCAbrIQ4V2fJ4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Tasks in Progress\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/list/69e392bb272d8509b988ea82",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "list",
+                "69e392bb272d8509b988ea82"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delet list",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUxODk4MSwiZXhwIjoxNzc2NTIyNTgxfQ.yzzAFUZvr4B1hQKN-PTbBI25jlsQ-wNCAbrIQ4V2fJ4",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/list/69e38a973247deef56625b32",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "list",
+                "69e38a973247deef56625b32"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all list",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUxODk4MSwiZXhwIjoxNzc2NTIyNTgxfQ.yzzAFUZvr4B1hQKN-PTbBI25jlsQ-wNCAbrIQ4V2fJ4",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/list/all/69c16990ffdbb3d38cc6511e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "list",
+                "all",
+                "69c16990ffdbb3d38cc6511e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get list by board id",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZTM4NjliMzI0N2RlZWY1NjYyNWIxMiIsImVtYWlsIjoiNTIzOTZkMTA1N0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NjUxODk4MSwiZXhwIjoxNzc2NTIyNTgxfQ.yzzAFUZvr4B1hQKN-PTbBI25jlsQ-wNCAbrIQ4V2fJ4",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/list/one/69c3bd0e0597bae7e4f16c5d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "list",
+                "one",
+                "69c3bd0e0597bae7e4f16c5d"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get my profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzE2OTI4ZmZkYmIzZDM4Y2M2NTExYSIsImVtYWlsIjoiY2VkZjI4NGZjNEBlbWFpbGF4LnBybyIsImlhdCI6MTc3NDQyNjkwOSwiZXhwIjoxNzc0NDMwNTA5fQ.BwY4cUi4vIVXvVEm8KZuYDoCyes8Q5DtoPDrD_z7cRE",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update my profile",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzE2OTI4ZmZkYmIzZDM4Y2M2NTExYSIsImVtYWlsIjoiY2VkZjI4NGZjNEBlbWFpbGF4LnBybyIsImlhdCI6MTc3NDQyNjkwOSwiZXhwIjoxNzc0NDMwNTA5fQ.BwY4cUi4vIVXvVEm8KZuYDoCyes8Q5DtoPDrD_z7cRE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Marwa Mahmoud\",\r\n  \"age\": 26\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "update"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzE2OTI4ZmZkYmIzZDM4Y2M2NTExYSIsImVtYWlsIjoiY2VkZjI4NGZjNEBlbWFpbGF4LnBybyIsImlhdCI6MTc3NDQyNjkwOSwiZXhwIjoxNzc0NDMwNTA5fQ.BwY4cUi4vIVXvVEm8KZuYDoCyes8Q5DtoPDrD_z7cRE",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all user",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Delete  user",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YzEwMjEwMGQ4NDYxMjA4MGY3Y2NjMyIsImVtYWlsIjoiMDYyYjE4ZWQ5Y0BlbWFpbGF4LnBybyIsImlhdCI6MTc3NDQyOTcyNSwiZXhwIjoxNzc0NDMzMzI1fQ.J2U8hg5Usjra4ZQo4mxa_kIMkh6ROADU4fPjI02GGk8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/delete",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "delete"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "sign in",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n   \"email\": \"52396d1057@emailax.pro\", \r\n    \"password\": \"yourPassword123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/signin",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "signin"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "sign up",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Marwa Mahmoud\",\r\n    \"email\": \"52396d1057@emailax.pro\", \r\n    \"password\": \"yourPassword123\",\r\n    \"age\": 26\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/signup",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "signup"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
