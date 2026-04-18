@@ -2,8 +2,7 @@ import { listModel } from "../Models/List.model.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { boardModel } from "../Models/Board.model.js";
 
-//  Create List
-
+// --- Create List ---
 export const createList = asyncHandler(async (req, res) => {
     const { title, boardId } = req.body;
     const creatorid = req.user.id;
@@ -14,30 +13,30 @@ export const createList = asyncHandler(async (req, res) => {
         createdBy: creatorid,
     });
 
-   
     await boardModel.findByIdAndUpdate(boardId, {
         $push: { lists: newList._id } 
     });
     
-    res.status(201).json({ message: "List created", newList });
+ 
+    return res.status(201).json({ message: "List created", newList });
 });
 
-//  Get All Lists by Board
-
+// --- Get All Lists by Board ---
 export const getAllList = asyncHandler(async (req, res) => {
     const { boardId } = req.params;
     const lists = await listModel
         .find({ boardId })
         .populate("createdBy", "name")
-        .populate("cards"); 
+        .populate("tasks"); 
 
     if (lists.length === 0) {
         return res.status(404).json({ message: "No lists found for this board" });
     }
 
-    res.status(200).json({ lists });
+    return res.status(200).json({ lists });
 });
-//  Get List By Id
+
+// --- Get List By Id ---
 export const getListById = asyncHandler(async (req, res) => {
     const { id } = req.params;
     const list = await listModel
@@ -49,10 +48,10 @@ export const getListById = asyncHandler(async (req, res) => {
         return res.status(404).json({ message: "List not found!" });
     }
 
-    res.status(200).json({ list });
+    return res.status(200).json({ list });
 });
 
-//  Update List
+// --- Update List ---
 export const updateList = asyncHandler(async (req, res) => {
     const { id } = req.params;
     const { title } = req.body;
@@ -60,17 +59,18 @@ export const updateList = asyncHandler(async (req, res) => {
     const updatedList = await listModel.findOneAndUpdate(
         { _id: id, createdBy: req.user.id },
         { title },
-        { new: true }
+      
+        { returnDocument: 'after' }
     ).populate("createdBy", "name email -_id");
 
     if (!updatedList) {
         return res.status(403).json({ message: "Not authorized or List not found" });
     }
     
-    res.status(200).json({ message: "List updated successfully!", updatedList });
+    return res.status(200).json({ message: "List updated successfully!", updatedList });
 });
 
-//  Delete List
+// --- Delete List ---
 export const deleteList = asyncHandler(async (req, res) => {
     const { id } = req.params;
     const deletedList = await listModel.findOneAndDelete({ 
@@ -82,5 +82,5 @@ export const deleteList = asyncHandler(async (req, res) => {
         return res.status(403).json({ message: "Not authorized or List not found" });
     }
     
-    res.status(200).json({ message: "List deleted successfully!" });
+    return res.status(200).json({ message: "List deleted successfully!" });
 });
